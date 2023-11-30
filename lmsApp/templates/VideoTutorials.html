@@ -1,0 +1,159 @@
+{% extends 'base.html' %}{% load static %}{% block pageContent %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="static/assets/default/img/book.png" type="image/x-icon"/>
+    <title> Our Books | Library Management System</title>
+
+<style>
+
+
+* {
+margin:0;
+
+}
+
+body {
+  background-image:url('static/assets/default/img/bg1.jpg');
+ background-repeat:no-repeat;
+ background-size: cover;
+    }
+
+.vid{
+display:grid;
+column-gap: 120px;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+.vid iframe{
+padding:10px;
+margin-left:-25px;
+border-radius:23px
+}
+
+</style>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient fixed-top shadow border-bottom">
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand"  href="">
+                {% comment %} <img src="{{ MEDIA_URL }}/default/logo.png" height="16" alt="{{ MEDIA_URL }}" loading="lazy" class="bg-white bg-gradient px-1 py-1" style="margin-top: -3px;" /> {% endcomment %}
+                <b>Library Management System</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="topNav">
+ {% if request.user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'home-page' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'category-page' %}">Categories</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'book-page' %}">Books</a>
+                    </li>
+
+                       <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'VideoTutorials-page' %}">Videos</a>
+                     </li>
+                         <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'reports-page' %}">Reports</a>
+                     </li>
+                    {% endif %}
+
+      {%if not user.is_superuser%}
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'book2-page' %}">Our Books</a>
+                    </li>
+
+                        <a class="nav-link" aria-current="page" href="{% url 'VideoTutorials-page' %}">Video Tutorials</a>
+                    </li>
+                        {% endif %}
+
+                </ul>
+
+                 <ul class="navbar-nav d-flex flex-row">
+                    {% if user.id %}
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'profile-page' %}"><b>Hello, {{user.username}}</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'login-page' %}">Login</a>
+                    </li>
+                        {% endif %}
+                       </ul>
+            </div>
+           </div>
+    </nav>
+    <!-- Navbar -->
+
+
+</head>
+
+<body>
+     {%if not user.is_superuser%}
+<p style= "font-weight:bolder; text-align:center;font-size:22px">You can check out our tutorial videos. New videos are uploaded every week</p>
+ {% endif %}
+ <div class ="vid">
+<iframe width="330" height="250"
+        src="https://www.youtube.com/embed/suG-oqsdcGo"
+        title="How To Read Books Effectively (7 Stoic Tips)" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+         gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="330" height="250" src="https://www.youtube.com/embed/EtDiIvhq2c0"
+        title="How to get FREE textbooks! | Online PDF and Hardcopy (2022)"
+        frameborder="0" allow="accelerometer; autoplay;
+        clipboard-write; encrypted-media; gyroscope;
+        picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="330" height="250"
+  src="https://www.youtube.com/embed/2I44oMVd4Cw"
+  title="Become a Better Reader in 8 Minutes"
+ frameborder="0" allow="accelerometer; autoplay;
+ clipboard-write; encrypted-media; gyroscope;
+ picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="330" height="250"
+  src="https://www.youtube.com/embed/zU7OgLjA5zk"
+  title="5 Life-changing books YOU MUST READ in 2023"
+  frameborder="0" allow="accelerometer;
+  autoplay; clipboard-write; encrypted-media; gyroscope;
+   picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+<iframe width="330" height="250"
+        src="https://www.youtube.com/embed/kmDMrxUSXKY"
+        title="5 Ways to Read Faster That ACTUALLY Work - College Info Geek"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+        encrypted-media; gyroscope; picture-in-picture;
+         web-share" allowfullscreen></iframe>
+
+<iframe width="330" height="250"
+        src="https://www.youtube.com/embed/AUw7laSlcbo"
+        title="Reading Changes your Brain, let me explain." frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write;
+         encrypted-media; gyroscope; picture-in-picture;
+          web-share" allowfullscreen></iframe>
+
+    </div>
+</body>
+
+
+
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+
+</script>
+{% endblock ScriptBlock %}
+
+</html>

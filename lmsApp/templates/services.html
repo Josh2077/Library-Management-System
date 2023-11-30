@@ -1,0 +1,370 @@
+{% extends 'base.html' %}{% load static %}{% block pageContent %}
+
+<head>
+
+    <link rel="icon" href="static/assets/default/img/logo.jpg" type="image/x-icon"/>
+    <title>Services | Library Management System</title>
+
+<style>
+
+* {
+ margin:0;
+}
+.hours{
+font-size:19px;
+ text-decoration:underline;
+ margin-top:6px
+}
+
+.title{
+text-align:center;
+padding-top:20px;
+font-size:24px;
+}
+.holiday{
+font-size:19px;
+ text-decoration:underline
+ }
+
+.time{
+font-size:19px;
+background-color:#343a40;
+padding:8px;
+color:white;
+width:37%
+}
+.intro{
+display:flex
+}
+.intro p{
+width:60%;
+padding:8px;
+line-height:28px;
+margin-top:-22px;
+margin-left:-75px;
+font-size:19px;
+
+}
+
+.intro img{
+border-radius:23px;
+position:relative;
+left:7%;
+width:45%;
+
+}
+.bklist{
+background-color:#343a40;
+color:white;
+padding:8px;
+font-size:17px;
+width:18%;
+position:relative;
+bottom:158px;
+margin-left:-70px;
+text-align:center
+}
+.list{
+
+line-height:25px;
+position:relative;
+bottom:177px;
+font-size:19px;
+margin-left:-79px
+}
+.list2{
+font-size:19px;
+position:relative;
+bottom:230px
+}
+body {
+        background-image:url('static/assets/default/img/bg1.jpg');
+          background-repeat:no-repeat;
+        background-size: cover;
+    }
+    //Responsiveness -START//
+ @media only screen and (max-width: 1300px) {
+.intro p{
+margin-left:7px;
+width:100%
+ }
+
+ .intro img{
+ width:44%;
+ margin-right:33px
+ }
+.holiday{
+font-size:19px;
+ text-decoration:underline"
+ }
+
+
+.list{
+margin-left:10px;
+margin-top:11px;
+line-height:25px;
+ }
+.bklist{
+padding:8px;
+font-size:17px;
+width:18%;
+margin-top:133px;
+margin-left:22px;
+text-align:center
+}
+  }
+  @media only screen and (max-width: 1299px){
+  .bklist{
+padding:8px;
+font-size:16px;
+width:18%;
+margin-top:29px;
+margin-left:22px;
+text-align:center
+}
+
+.intro p{
+font-size:18px;
+margin-left:-14px;
+width:100%
+}
+.list{
+font-size:18px;
+margin-left:-18px;
+margin-top:11px;
+line-height:25px;
+
+ }
+ .list2{
+font-size:18px;
+
+}
+
+  .intro img{
+ width:40%;
+ margin-right:55px
+ }
+ .list2{
+font-size:17px;
+
+}
+}
+
+ @media only screen and (max-width: 1271px){
+.intro p{
+font-size:17px;
+margin-left:-25px;
+width:60%
+}
+.list{
+font-size:17px;
+margin-left:-12px;
+margin-top:11px;
+line-height:25px;
+
+ .list2{
+font-size:17px;
+
+}
+  .bklist{
+padding:8px;
+font-size:17px;
+width:18%;
+margin-left:22px;
+text-align:center
+}
+
+ .intro img{
+ width:44%;
+ margin-right:133px
+ }
+
+}
+
+ @media only screen and (max-width: 1200px){
+.intro p{
+font-size:17px;
+width:70%;
+margin-left:8px
+}
+ .list2{
+font-size:17px;
+
+}
+.list{
+font-size:17px;
+margin-left:-33px;
+margin-top:-9px;
+line-height:25px;
+
+}
+  .bklist{
+padding:8px;
+font-size:17px;
+width:22%;
+margin-top:100px;
+margin-left:22px;
+text-align:center
+}
+.time{
+font-size:17px;
+margin-top:5px
+
+}
+
+}
+ @media only screen and (max-width: 997px){
+.intro p{
+font-size:16px;
+width:100%;
+}
+
+.list{
+font-size:16px;
+margin-left:-22px;
+margin-top:-9px;
+line-height:25px;
+
+}
+ .list2{
+font-size:16px;
+
+}
+  .bklist{
+width:27%;
+}
+ .intro img{
+ width:44%;
+ height:32%;
+
+ }
+ }
+
+ @media only screen and (max-width:800px){
+ .intro{
+ display:block
+  }
+   .intro img{
+ width:90%;
+ margin-bottom:33px
+ }
+
+ .intro p{
+font-size:15px;
+width:100%;
+}
+ .list2{
+font-size:15px;
+
+}
+ .list{
+font-size:15px;
+line-height:25px;
+
+}
+
+  .bklist{
+width:37%;
+font-size:15px
+}
+
+.time{
+font-size:15px;
+width:44%
+
+}
+.holiday{
+font-size:15px;
+text-decoration:underline
+}
+.hours{
+font-size:15px;
+text-decoration:underline
+}
+  }
+      //Responsiveness -END//
+</style>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient fixed-top shadow border-bottom">
+        <div class="container">
+            <!-- Navbar brand -->
+         <a class="navbar-brand" target="_self" href="./">
+                {% comment %} <img src="{{ MEDIA_URL }}/default/logo.png" height="16" alt="{{ MEDIA_URL }}" loading="lazy" class="bg-white bg-gradient px-1 py-1" style="margin-top: -3px;" /> {% endcomment %}
+                <b>Library Management System</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="topNav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'contact-page' %}"> Contact Us</a>
+                    </li>
+
+                       <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'services-page' %}">Our Services</a>
+                     </li>
+
+                </ul>
+                           </div>
+           </div>
+    </nav>
+    <!-- Navbar -->
+
+</head>
+
+<body>
+
+<br>
+<div class="intro">
+<p>
+    <span style="font-size:22px;font-weight:bold"> WHAT IS ONLINE LIBRARY MANAGEMENT SYSTEM ? </span>
+    <br>
+    Library plays an important role in all schools and colleges,
+    no educational institution can exist without Library Administration Software.
+    It is an important part of every school and college, and it helps
+    the librarian to keep records of available books as well as issued books.
+    Online Library Management System helps in different ways by providing students the
+    facility to learn, gather resources, promote group learning and improve knowledge and skills.
+</p>
+
+<img src ='static/assets/default/img/you.webp'>
+        </div>
+<br><br>
+<h1 class="bklist"> Book Titles / Category </h1>
+<br>
+<div style="display:flex">
+<ul class ="list">
+ <li> Mathematics 101 - Educational / Mathematics</li>
+ <li> Geography 101 - Educational / Science</li>
+ <li> Physics 101 - Educational / Science</li>
+  <li>Biology 101 - Educational / Science</li>
+  <li>The Great Gatsby - Fiction </li>
+  <li> Harry Potter - Fantasy </li>
+</ul>
+<br>
+<ul style="line-height:24px"; class="list2" ></h1>
+      <h1 class="time" > Timings </h1>
+
+  <h1 class="hours" > Library Working Hours </h1>
+ <li> Mon - Fri 9:00am – 11:00 pm</li>
+   <li> Sat & Sun  10:00am – 5:00 pm</li>
+     <h2 class="holiday"> Library Holidays</h2>
+    <li>Republic Day - Jan 26 </li>
+   <li> Independence day - Aug 15</li>
+     <li> Gandhi Jayanti - Oct 2 </li>
+   <li> Holi </li>
+      <li> Diwali (Deepavali) </li>
+     <li> Christmas Day - Dec 25 </li>
+
+</ul>
+</div>
+</body>
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+
+</script>
+{% endblock ScriptBlock %}
+
+</html>

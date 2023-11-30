@@ -1,0 +1,141 @@
+{% extends "base.html" %} {% load humanize %} {% load customfilter %} {% block pageContent %}
+
+<style>
+.books{
+display:grid;
+column-gap: 150px;
+row-gap:8px;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+margin-left:70px;
+
+}
+.books img{
+width:70%;
+padding:8px;
+border:3px solid #343a40
+}
+
+.function h3{
+font-size:16px;
+width:70%;
+color:white;
+background-color:#343a40;
+padding:4px;
+text-decoration:none;
+text-align:center;
+}
+
+</style>
+
+<!--Section: Content-->
+<section class="">
+    {% if request.user.is_superuser %}
+    <h2 class="fw-bolder">Welcome, {{request.user.first_name}}&nbsp;{{request.user.last_name}}!</h2>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow bg-primary bg-gradient border-0 text-light">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-th-list"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{categories|intcomma}}</h1>
+                            </div>
+                            <div class="col-12 text-end"><b>Active Categories</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow bg-gradient bg-dark bg-opacity-75 text-light">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-list"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{3|intcomma}}</h1>
+                            </div>
+                            <div class="col-12 text-end"><b>Active Sub Categories</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow bg-gradient bg-success bg-opacity-75 text-light">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-user-friends"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{3|intcomma}}</h1>
+                            </div>
+                            <div class="col-12 text-end"><b>Active Users</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow bg-gradient bg-warning bg-opacity-75 text-light">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-book"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{6|intcomma}}</h1>
+                            </div>
+                            <div class="col-12 text-end"><b>Active Books</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </section>
+ {% else %}
+<body>
+<div class="books">
+<a class="function" href="https://www.ma.utexas.edu/users/arbogast/appMath08c.pdf" style="text-decoration:none">
+
+<img src ='static/assets/default/img/math.jpg'  >
+  <h3> Download</h3>
+ </a>
+   <a class="function" href="https://www.pdfdrive.com/download.pdf?id=19786856&h=833e36a65066ff521572c7f4408286bb&u=cache&ext=pdf" style="text-decoration:none">
+<img src ='static/assets/default/img/biology.jpg'>
+ <h3> Download</h3>
+ </a>
+
+  <a class ="function" href="https://www.pdfdrive.com/download.pdf?id=647129&h=5a95c0dc6043b1ec2c013fcf58e80c0c&u=cache&ext=pdf " style="text-decoration:none">
+  <img src ='static/assets/default/img/geography.jpg' >
+    <h3> Download</h3>
+   </a>
+   <a class="function" href="https://www.pdfdrive.com/download.pdf?id=157111242&h=5a76ed18069193a9b8d7549019cfd70f&u=cache&ext=pdf" style="text-decoration:none">
+<img src ='static/assets/default/img/physics2.jpg'  style=" cursor:default" >
+     <h3> Download</h3>
+  </a>
+<a class="function" href="https://www.pdfdrive.com/download.pdf?id=32629333&h=9e156d2a11171839fe09059e28098ac6&u=cache&ext=pdf" style="text-decoration:none">
+<img src ='static/assets/default/img/gatsby.jpg' >
+    <h3> Download</h3>
+ </a>
+<a class="function" href="https://www.pdfdrive.com/download.pdf?id=200817422&h=f8428c2c231128952a04152a3380f7b9&u=cache&ext=pdf" style="text-decoration:none">
+<img src ='static/assets/default/img/hp.jfif'>
+ <h3> Download</h3>
+  </a>
+</div>
+
+</body>
+ {% endif %}
+</div> {% endblock pageContent %} {% block ScriptBlock %}
+
+
+{% endblock ScriptBlock %}

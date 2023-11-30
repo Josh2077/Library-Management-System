@@ -1,0 +1,147 @@
+{% extends 'base.html' %}{% load static %}{% block pageContent %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/assets/default/img/book.png" type="image/x-icon"/>
+    <title>Contact | Library Management System</title>
+
+<style>
+
+ body {
+       margin:0;
+        background-image:url('static/assets/default/img/wallpaper.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+.info{
+display:flex;
+padding-top:24px
+  }
+  .contact{
+  padding:20px;
+  background-color:white;
+  width:80%;
+  margin-left:-32px;
+  opacity:0.9;
+  text-align:center;
+  border-radius:30px
+  }
+
+.details{
+padding:11px;
+ text-align:center
+ }
+@media only screen and (max-width: 993px) {
+  .info {
+   display:block;
+   padding:20px;
+  }
+.contact{
+width:100%;
+margin-left:9px;
+
+}
+
+form  {
+margin-top:33px;
+position:relative;
+right:22%;
+width:100%;
+padding:22px
+}
+
+}
+
+
+</style>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient fixed-top shadow border-bottom">
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" target="_self" href="./">
+                {% comment %} <img src="{{ MEDIA_URL }}/default/logo.png" height="16" alt="{{ MEDIA_URL }}" loading="lazy" class="bg-white bg-gradient px-1 py-1" style="margin-top: -3px;" /> {% endcomment %}
+                <b>Library Management System</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="topNav">
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'contact-page' %}"> Contact Us</a>
+                    </li>
+
+                       <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'services-page' %}">Our Services</a>
+                     </li>
+
+                </ul>
+                           </div>
+           </div>
+    </nav>
+    <!-- Navbar -->
+
+
+</head>
+
+
+
+
+<body>
+<div  class ="info">
+<div class="contact">
+    <h2 style="font-size:26px;padding-top:8px"> How to Find Us</h2>
+    <p style="width:100%; margin:auto;font-size:24px;color:grey "> If you have any questions, just fill in the contact form, and we will answer you shortly  </p>
+    <div>
+        <br>
+    <h2 style="font-size:26px"> Our Address </h2>
+    <p style="font-size:24px;;color:grey"> Migh92, New Santoshnagar, Hyderabad, India </p>
+        </div>
+       <div>
+    <h2 style="font-size:26px">  Email</h2>
+    <p style="font-size:24px;color:grey"> info@libmanagementsystem.com </p>
+        </div>
+        <div>
+    <h2 style="font-size:26px"> Phone no</h2>
+    <p style="font-size:24px;color:grey"> +1 800-595-3333  </p>
+        </div>
+        </div>
+
+<form style ="background-color:white; width:80%; margin-left:150px;opacity:0.9;border-radius:30px">
+<div class="details">
+<h1 style="font-size:28px;padding-top:8px"> Get in touch </h1>
+    <br>
+<input type ="text" placeholder="Name" style="outline:none; width:90%;font-size:22px">
+    <br><br>
+<input type ="text" placeholder="Phone no" style="outline:none;width:90%;font-size:22px">
+    <br><br>
+<input type ="email" placeholder="Email" style="outline:none;width:90%;font-size:22px">
+      <br><br><br>
+<textarea placeholder="Your message" style="outline:none;width:90%;font-size:22px;height:119px" ></textarea>
+
+
+</div>
+    <br>
+    <a href="" style="color:white; background-color:#343a40; border-radius:5px;
+    padding:7px;text-decoration:none;font-weight:bold;
+     font-size:17px; margin:45%"> Submit</a>
+</form>
+
+</div>
+
+</div>
+
+</body>
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+
+</script>
+{% endblock ScriptBlock %}
+
+
+</html>
